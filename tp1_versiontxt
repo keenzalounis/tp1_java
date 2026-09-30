@@ -1,0 +1,113 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package tp1_;
+
+import java.time.LocalDate;
+
+/**
+ *
+ * @author TRETEC
+ */
+public class TP1_ {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args){
+        // TODO code application logic here
+        Personne personne1 = new Personne("Dupont", "Jean",2004);
+        personne1.afficherInfos();
+        
+        Personne personne2= new Personne("Kenza",2004);
+        Personne personne3= new Personne("Lounis","Kenza",2004);
+        Personne personne4= new Personne();
+        
+        System.out.println("Nom p2 : " + personne2.getNom());
+        System.out.println("Prenom p2 : " + personne2.getPrenom());
+        personne2.setAnNaissance(2003);
+        personne2.mange("pomme");
+        
+        System.out.println("Nom p3 : " + personne3.getNom());
+        personne3.setPrenom("kenz");
+        System.out.println("Prenom p3 : " + personne3.getPrenom());
+        personne3.mange("banane");
+        
+        personne4.setNom("lns");
+        System.out.println("Nom p4 : " + personne4.getNom());
+        System.out.println("Prenom p4 : " + personne4.getPrenom());
+        personne4.mange("ananas");
+    }
+    public static class Personne{
+        private static int nbPers = 0;
+        //attributs
+        private String nom;
+        private String prenom;
+        private int anNaissance;
+        
+    public Personne(String nom, String prenom, int anNaissance){
+        this.nom=nom;
+        this.prenom=prenom;
+        this.anNaissance=anNaissance;
+        nbPers++;
+    }
+    
+    public Personne(String prenom, int anNaissance){
+        this.nom="Inconnu";
+        this.prenom=prenom;
+        this.anNaissance=anNaissance;
+        nbPers++;
+    }
+    
+    public Personne(){
+        this.nom="Potter";
+        this.prenom="Harry" ;
+        this.anNaissance=1980;
+        nbPers++;
+    }
+    
+    public String getNom(){
+        return nom;
+    }
+    
+    public String getPrenom(){
+        return prenom;
+    }
+    
+    public int getAnNaissance(){
+        return anNaissance;
+    }
+        
+    public void setNom(String nom){
+        this.nom =nom;
+    }
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setAnNaissance(int anNaissance) {
+        this.anNaissance = anNaissance;
+    }
+    
+    public int calculerAge(){
+        return LocalDate.now().getYear()-this.anNaissance;
+    }
+    public void afficherInfos(){
+        System.out.println(this.nom);
+        System.out.println(this.prenom);
+        int age=calculerAge();
+        System.out.println(age);
+    }
+    
+    public void mange(String s){
+        System.out.println(this.prenom + " mange " + s);
+    }
+    }
+    
+    public static int afficheNbPers(){
+        String nbPers;
+        System.out.println("nombre de personne est : "+ nbPers)
+    }
+    
+}
